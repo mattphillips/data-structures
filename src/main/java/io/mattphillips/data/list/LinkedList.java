@@ -24,7 +24,21 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public T get(int index) {
-		return null;
+		
+		if (nodes == null) 
+			throw new IndexOutOfBoundsException(String.valueOf(index));
+		
+		Node<T> current = nodes;
+		for (int i = 0; i < index; i++) {
+			
+			if (current.getNext() != null)
+				current = current.getNext();
+			
+			else 
+				throw new IndexOutOfBoundsException(String.valueOf(index));
+		}
+		
+		return current.getData();
 	}
 
 	@Override
