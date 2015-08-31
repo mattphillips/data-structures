@@ -3,7 +3,7 @@ package io.mattphillips.data.stack;
 public interface Stack<T> {
 
 	// Remove the top item from the stack
-	public void pop();
+	public T pop();
 
 	// Add item to the top of the stack
 	public void push(T item);
