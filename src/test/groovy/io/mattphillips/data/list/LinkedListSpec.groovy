@@ -78,5 +78,43 @@ class LinkedListSpec extends Specification {
 		2     | "C"
 	}
 	
+	def "Should return size 0 for an empty list"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Getting size"
+		def size = list.size()
+		
+		then: "Size should be 0"
+		size == 0;
+	}
+	
+	def "Should return size 1 when only one node has been added to the list"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Adding new data"
+		list.add("A");
+		
+		then: "Size should be 1"
+		list.size() == 1;
+	}
+	
+	def "Should return size of list when greater than 1"() {
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Adding 5 new pieces of data"
+		list.add("A");
+		list.add("B");
+		list.add("C");
+		list.add("D");
+		list.add("E");
+		
+		then: "Size should be 5"
+		list.size() == 5;
+	}
 	
 }

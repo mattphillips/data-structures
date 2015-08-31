@@ -47,7 +47,24 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public int size() {
-		return 0;
+		
+		int size = 0;
+		
+		if (nodes == null) {
+			return size;
+		
+		} else {
+			
+			Node<T> current = nodes;
+			size++;
+			
+			while (current.getNext() != null) {
+				size++;
+				current = current.getNext();
+			}
+		}
+		
+		return size;
 	}
 
 }
