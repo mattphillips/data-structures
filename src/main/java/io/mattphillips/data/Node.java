@@ -1,4 +1,4 @@
-package io.mattphillips.data.list;
+package io.mattphillips.data;
 
 public class Node<T> {
 
