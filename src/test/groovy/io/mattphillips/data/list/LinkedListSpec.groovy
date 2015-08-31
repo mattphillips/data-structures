@@ -100,7 +100,7 @@ class LinkedListSpec extends Specification {
 		def size = list.size()
 		
 		then: "Size should be 0"
-		size == 0;
+		size == 0
 	}
 	
 	def "Should return size 1 when only one node has been added to the list"() {
@@ -109,10 +109,10 @@ class LinkedListSpec extends Specification {
 		def list = new LinkedList()
 		
 		when: "Adding new data"
-		list.add("A");
+		list.add("A")
 		
 		then: "Size should be 1"
-		list.size() == 1;
+		list.size() == 1
 	}
 	
 	def "Should return size of list when greater than 1"() {
@@ -120,14 +120,100 @@ class LinkedListSpec extends Specification {
 		def list = new LinkedList()
 		
 		when: "Adding 5 new pieces of data"
-		list.add("A");
-		list.add("B");
-		list.add("C");
-		list.add("D");
-		list.add("E");
+		list.add("A")
+		list.add("B")
+		list.add("C")
+		list.add("D")
+		list.add("E")
 		
 		then: "Size should be 5"
-		list.size() == 5;
+		list.size() == 5
+	}
+	
+	def "Should throw index out of bounds exception when trying to remove an index from an empty list"() {
+	
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Remove is called on an empty list"
+		list.remove(0)
+		
+		then: "An index out of bounds exception is thrown"
+		final IndexOutOfBoundsException exception = thrown()
+	}
+	
+	def "Should throw index out of bounds exception when trying to remove a negative index"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Remove is called on at a negative index"
+		list.add("A")
+		list.remove(-1)
+		
+		then: "An index out of bounds exception is thrown"
+		final IndexOutOfBoundsException exception = thrown()
+	}
+	
+	def "Should throw index out of bounds when index is greater than the size of the list"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Remove is called on at a negative index"
+		list.add("A")
+		list.remove(5)
+		
+		then: "An index out of bounds exception is thrown"
+		final IndexOutOfBoundsException exception = thrown()
+	}
+	
+	def "Should set list nodes to null when removing only entry of the list"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Remove is called on only entry"
+		list.add("A")
+		list.remove(0)
+		
+		then: 
+		
+		list.size()  == 0
+		list.nodes   == null
+	}
+	
+	def "Should set parent node next to null when removing last element from a list of size 2"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Remove is called on last entry"
+		list.add("A")
+		list.add("B")
+		list.remove(1)
+		
+		then:
+		
+		list.size()            == 1
+		list.nodes.getNext()   == null
+	}
+	
+	def "Should set parent node to remove node's next entry from a list of size greater than 2 when removing a middle entry"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Remove is called on middle entry"
+		list.add("A")
+		list.add("B")
+		list.add("C")
+		list.remove(1)
+		
+		then:
+		
+		list.size()                      == 2
+		list.nodes.getNext().getData()   == "C"
 	}
 	
 }

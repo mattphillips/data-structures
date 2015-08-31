@@ -44,6 +44,35 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public void remove(int index) {
 		
+		if (nodes == null || index < 0) 
+			throw new IndexOutOfBoundsException(String.valueOf(index));
+		
+		Node<T> parent = null;
+		Node<T> current = nodes;
+		
+		for (int i = 0; i < index; i++) {
+			
+			if (current.getNext() != null) {
+				parent = current;
+				current = current.getNext();
+			
+			} else {
+				throw new IndexOutOfBoundsException(String.valueOf(index));
+			}
+		}
+		
+		if (parent == null) {
+			nodes = null;
+		
+		} else {
+			
+			if (current.getNext() != null) {
+				parent.setNext(current.getNext());
+			
+			} else {
+				parent.setNext(null);
+			}
+		}
 	}
 
 	@Override
