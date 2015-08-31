@@ -1,0 +1,62 @@
+package io.mattphillips.data.stack
+
+import spock.lang.Specification
+
+class MyStackSpec extends Specification {
+
+	def "Should throw exception when performing pop on an empty stack"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling pop"
+		stack.pop()
+		
+		then: "An empty stack exception is thrown"
+		final EmptyStackException exception = thrown()
+	}
+	
+	def "Should return top item in stack and set top to be returned item's next node"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling pop after pushing an item"
+		stack.push("TOP")
+		def item = stack.pop()
+		
+		then: "Item should be equal to top data and top should be null"
+		item      == "TOP"
+		stack.top == null
+	}
+	
+	def "Should add new items to the top of the stack"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling pop"
+		stack.push("TOP")
+		
+		then: "Item should be equal to top data"
+		stack.top.getData() == "TOP"
+		stack.top.getNext() == null
+	}
+	
+	def "Should add new items to the top of the stack and move existing items to the next of the top"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling pop"
+		stack.push("TOP")
+		stack.push("NEW TOP")
+		
+		then: "Item should be equal to top data"
+		stack.top.getData() == "NEW TOP"
+		stack.top.getNext() != null
+	}
+	
+	
+	
+}

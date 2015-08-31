@@ -22,6 +22,9 @@ public class MyStack<T> implements Stack<T> {
 
 	@Override
 	public void push(T item) {
+		
+		Node<T> newTop = new Node<>(item, top);
+		top = newTop;
 	}
 
 	@Override
