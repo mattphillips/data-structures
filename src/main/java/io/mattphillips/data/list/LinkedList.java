@@ -1,5 +1,7 @@
 package io.mattphillips.data.list;
 
+import io.mattphillips.data.Node;
+
 public class LinkedList<T> implements List<T> {
 
 	private Node<T> nodes = null;
