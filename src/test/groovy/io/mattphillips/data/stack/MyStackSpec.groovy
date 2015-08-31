@@ -82,6 +82,28 @@ class MyStackSpec extends Specification {
 		empty == false
 	}
 	
+	def "Should throw exception when performing peek on an empty stack"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling peek"
+		stack.peek()
+		
+		then: "An empty stack exception is thrown"
+		final EmptyStackException exception = thrown()
+	}
 	
-	
+	def "Should return the top item in a stack"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "adding an item and calling peek"
+		stack.push("Hello, World!")
+		def item = stack.peek()
+		
+		then: "The item should be returned"
+		item == "Hello, World!"
+	}
 }

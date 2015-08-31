@@ -29,7 +29,11 @@ public class MyStack<T> implements Stack<T> {
 
 	@Override
 	public T peek() {
-		return null;
+		
+		if (top == null) 
+			throw new EmptyStackException();
+		
+		return top.getData();
 	}
 
 	@Override
