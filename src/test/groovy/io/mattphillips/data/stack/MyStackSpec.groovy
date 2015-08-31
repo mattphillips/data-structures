@@ -57,6 +57,31 @@ class MyStackSpec extends Specification {
 		stack.top.getNext() != null
 	}
 	
+	def "Should return true if the stack is empty"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling is empty"
+		def empty = stack.isEmpty()
+		
+		then: "should be true"
+		empty == true
+	}
+	
+	def "Should return false if the stack is not empty"() {
+		
+		given: "An empty Stack"
+		def stack = new MyStack()
+		
+		when: "calling is empty after pushing into the stack"
+		stack.push("not empty")
+		def empty = stack.isEmpty()
+		
+		then: "should be false"
+		empty == false
+	}
+	
 	
 	
 }

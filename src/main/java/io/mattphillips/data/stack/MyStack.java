@@ -34,7 +34,8 @@ public class MyStack<T> implements Stack<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return false;
+		
+		return top == null;
 	}
 	
 } 
