@@ -1,13 +1,23 @@
 package io.mattphillips.data.stack;
 
+import java.util.EmptyStackException;
+
 import io.mattphillips.data.Node;
 
 public class MyStack<T> implements Stack<T> {
 
-	private Node<T> stack;
-
+	private Node<T> top = null;
+ 
 	@Override
-	public void pop() {
+	public T pop() {
+		
+		if (top == null) 
+			throw new EmptyStackException();
+
+		Node<T> previousTop = top;
+		top = previousTop.getNext();
+
+		return previousTop.getData();
 	}
 
 	@Override
