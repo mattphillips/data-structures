@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 	'org.slf4j:slf4j-api:1.7.5'
+
+    testCompile 'junit:junit:4.11',
+				'org.codehaus.groovy:groovy-all:2.4.1',
+				'org.spockframework:spock-core:1.0-groovy-2.4'
+}
