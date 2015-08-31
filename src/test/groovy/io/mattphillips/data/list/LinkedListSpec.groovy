@@ -33,13 +33,26 @@ class LinkedListSpec extends Specification {
 		list.nodes.next.next.data == "!"
 	}
 	
-	def "Should throw index out of bounds exception when list is empty"() {
+	def "Should throw index out of bounds exception when trying to get an index on an empty list"() {
 		
 		given: "An empty LinkedList"
 		def list = new LinkedList()
 		
 		when: "Get is called on empty list"
 		list.get(0)
+		
+		then: "An index out of bounds exception is thrown"
+		final IndexOutOfBoundsException exception = thrown()
+	}
+	
+	def "Should throw index out of bounds exception when trying to get an index less than zero"() {
+		
+		given: "An empty LinkedList"
+		def list = new LinkedList()
+		
+		when: "Get negative index"
+		list.add("Hello")
+		list.get(-1)
 		
 		then: "An index out of bounds exception is thrown"
 		final IndexOutOfBoundsException exception = thrown()

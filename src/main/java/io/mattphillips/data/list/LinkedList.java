@@ -25,7 +25,7 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public T get(int index) {
 		
-		if (nodes == null) 
+		if (nodes == null || index < 0) 
 			throw new IndexOutOfBoundsException(String.valueOf(index));
 		
 		Node<T> current = nodes;
@@ -43,6 +43,7 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public void remove(int index) {
+		
 	}
 
 	@Override
