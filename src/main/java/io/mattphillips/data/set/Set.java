@@ -2,13 +2,13 @@ package io.mattphillips.data.set;
 
 import java.util.Collection;
 
-public interface Set<T> {
+public interface Set<E> {
 
-	boolean add(T element);
+	boolean add(E element);
 	
-	boolean addAll(Collection<? extends T> c);
+	boolean addAll(Collection<? extends E> c);
 	
-	boolean contains(T value);
+	boolean contains(E value);
 	
 	boolean isEmpty();
 }
