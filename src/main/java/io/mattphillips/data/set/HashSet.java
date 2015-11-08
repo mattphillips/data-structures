@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
 public class HashSet<E> implements Set<E> {
 	
 	private static final Object PRESENT = new Object();
