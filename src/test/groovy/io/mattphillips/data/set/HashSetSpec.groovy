@@ -141,5 +141,20 @@ class HashSetSpec extends Specification {
 		i.next() == "Hello"
 		i.next() == "world"
 	}
-}
 
+	def "Should remove element from the set"() {
+		given: "a set of elements"
+		Set<String>	s = new HashSet<>(Arrays.asList("Hello", "world"))
+		
+		when: "remove is called with hello"
+		def actual = s.remove(value);
+		
+		then:
+		actual == expected
+		
+		where:
+		value   | expected
+		"Hello" | true
+		"bye"   | false
+	}
+}

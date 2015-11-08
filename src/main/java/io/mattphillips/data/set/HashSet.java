@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
+
 public class HashSet<E> implements Set<E> {
 	
 	private static final Object PRESENT = new Object();
@@ -47,6 +49,10 @@ public class HashSet<E> implements Set<E> {
 	
 	public Iterator<E> iterator() {
 		return map.keySet().iterator();
+	}
+	
+	public boolean remove(E e) {
+		return map.remove(e) == PRESENT;
 	}
 
 }

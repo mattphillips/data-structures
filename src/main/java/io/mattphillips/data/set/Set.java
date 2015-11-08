@@ -16,4 +16,6 @@ public interface Set<E> {
 	int size();
 	
 	Iterator<E> iterator();
+	
+	boolean remove(E e);
 }
