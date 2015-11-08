@@ -22,4 +22,9 @@ public class HashSet<T> implements Set<T> {
 		return elements.containsKey(value);
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return elements.isEmpty();
+	}
+
 }
