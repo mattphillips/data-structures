@@ -3,7 +3,7 @@ package io.mattphillips.data.set
 import spock.lang.Specification
 
 class HashSetSpec extends Specification {
-
+	
 	def "Should add a unique string to the set"() {
 		
 		given: "a set of type string"
@@ -40,9 +40,22 @@ class HashSetSpec extends Specification {
 		Set<String>	s = new HashSet<>();
 		
 		when: "is empty is called"
-		def actual = s.isEmpty() == true
-		
+		def actual = s.isEmpty() 
+				
 		then: "result should be true"
 		actual == true
 	}
+	
+	def "Should return false if the set is not empty"() {
+		
+			given: "a non empty set"
+			Set<String>	s = new HashSet<>();
+			s.add("Hello world!")
+			
+			when: "is empty is called"
+			def actual = s.isEmpty()
+					
+			then: "result should be false"
+			actual == false
+		}
 }
