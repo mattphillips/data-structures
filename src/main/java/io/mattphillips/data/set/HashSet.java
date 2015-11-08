@@ -2,6 +2,7 @@ package io.mattphillips.data.set;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class HashSet<E> implements Set<E> {
@@ -42,6 +43,10 @@ public class HashSet<E> implements Set<E> {
 
 	public int size() {
 		return map.size();
+	}
+	
+	public Iterator<E> iterator() {
+		return map.keySet().iterator();
 	}
 
 }

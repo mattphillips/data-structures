@@ -128,4 +128,18 @@ class HashSetSpec extends Specification {
 		then: "the number of elements within the set should be returned"
 		actual == 2
 	}
+	
+	def "should return iterator to move through the set"() {
+
+		given: "a set of elements"
+		Set<String>	s = new HashSet<>(Arrays.asList("Hello", "world"))
+		
+		when: "iterator is called"
+		def i = s.iterator();
+		
+		then:
+		i.next() == "Hello"
+		i.next() == "world"
+	}
 }
+

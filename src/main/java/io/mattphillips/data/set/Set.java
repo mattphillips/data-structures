@@ -1,6 +1,7 @@
 package io.mattphillips.data.set;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 public interface Set<E> {
 
@@ -13,4 +14,6 @@ public interface Set<E> {
 	boolean isEmpty();
 	
 	int size();
+	
+	Iterator<E> iterator();
 }
