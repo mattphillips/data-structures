@@ -16,7 +16,7 @@ class HashSetSpec extends Specification {
 		actual == true
 	}
 	
-	def "Should return true when a set contains value"() {
+	def "Should return true when a set contains a given value"() {
 		
 		given: "a set of strings containing 'Hello world!'"
 		Set<String>	s = new HashSet<>();
@@ -32,5 +32,17 @@ class HashSetSpec extends Specification {
 		value          | expected
 		"Hello world!" | true
 		"Goodbye"      | false
+	}
+	
+	def "Should return true if the set is empty"() {
+	
+		given: "an empty set"
+		Set<String>	s = new HashSet<>();
+		
+		when: "is empty is called"
+		def actual = s.isEmpty() == true
+		
+		then: "result should be true"
+		actual == true
 	}
 }
