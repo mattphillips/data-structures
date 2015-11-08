@@ -1,5 +1,6 @@
 package io.mattphillips.data.set;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +26,17 @@ public class HashSet<T> implements Set<T> {
 	@Override
 	public boolean isEmpty() {
 		return elements.isEmpty();
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends T> c) {
+		
+		boolean modified = false;
+		for (T element : c) {
+			if(add(element))
+				modified = true;
+		}
+		return modified;
 	}
 
 }

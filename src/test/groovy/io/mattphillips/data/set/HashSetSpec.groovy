@@ -61,14 +61,46 @@ class HashSetSpec extends Specification {
 	
 	def "Should return false if the set is not empty"() {
 		
-			given: "a non empty set"
-			Set<String>	s = new HashSet<>();
-			s.add("Hello world!")
-			
-			when: "is empty is called"
-			def actual = s.isEmpty()
-					
-			then: "result should be false"
-			actual == false
-		}
+		given: "a non empty set"
+		Set<String>	s = new HashSet<>();
+		s.add("Hello world!")
+		
+		when: "is empty is called"
+		def actual = s.isEmpty()
+				
+		then: "result should be false"
+		actual == false
+	}
+	
+	def "Should add all of the elements of a collection to the set if they are not already present"() {
+		
+		given: "an empty set and a collection of values"
+		Set<String>	s = new HashSet<>();
+		List<String> list = Arrays.asList(elements)
+		
+		when: "add all is called with the collection"
+		def actual = s.addAll(list)
+		
+		then: "all elements should be added to the set"
+		actual == expected
+		
+		where:
+		elements        | expected
+		["a", "b", "c"] | true
+		["a", "a", "a"] | true
+	}
+	
+	def "Should not add elements of a collection to the set that are present"() {
+		
+		given: "a set with one value and a collection of the same value"
+		Set<String>	s = new HashSet<>();
+		s.add("a")
+		List<String> list = Arrays.asList("a")
+		
+		when: "add all is called with the collection"
+		def actual = s.addAll(list)
+		
+		then: "nothing should be added to the set"
+		actual == false
+	}
 }
