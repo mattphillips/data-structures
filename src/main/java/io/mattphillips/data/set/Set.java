@@ -18,4 +18,6 @@ public interface Set<E> {
 	Iterator<E> iterator();
 	
 	boolean remove(E e);
+	
+	void clear();
 }

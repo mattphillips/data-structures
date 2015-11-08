@@ -52,5 +52,9 @@ public class HashSet<E> implements Set<E> {
 	public boolean remove(E e) {
 		return map.remove(e) == PRESENT;
 	}
+	
+	public void clear() {
+		map.clear();
+	}
 
 }

@@ -157,4 +157,17 @@ class HashSetSpec extends Specification {
 		"Hello" | true
 		"bye"   | false
 	}
+	
+	def "Should remove all elements from the set" () {
+		given: "a set of elements"
+		Set<String>	s = new HashSet<>(Arrays.asList("Hello", "world"))
+		
+		when: "clear is called"
+		s.clear();
+		
+		then: "the set should not contain the given elements and should be empty"
+		s.contains("Hello") == false
+		s.contains("world") == false
+		s.isEmpty()         == true
+	}
 }
