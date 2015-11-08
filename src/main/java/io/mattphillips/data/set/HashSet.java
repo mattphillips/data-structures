@@ -17,4 +17,9 @@ public class HashSet<T> implements Set<T> {
 		return elements.put(element, PRESENT) == null;
 	}
 
+	@Override
+	public boolean contains(T value) {
+		return elements.containsKey(value);
+	}
+
 }

@@ -16,4 +16,21 @@ class HashSetSpec extends Specification {
 		actual == true
 	}
 	
+	def "Should return true when a set contains value"() {
+		
+		given: "a set of strings containing 'Hello world!'"
+		Set<String>	s = new HashSet<>();
+		s.add("Hello world!")
+		
+		when: "checked to see if set contains a value"
+		def actual = s.contains(value);
+		
+		then: "true should be returned if the set has the value"
+		actual == expected
+		
+		where:
+		value          | expected
+		"Hello world!" | true
+		"Goodbye"      | false
+	}
 }
