@@ -116,4 +116,16 @@ class HashSetSpec extends Specification {
 		then: "nothing should be added to the set"
 		actual == false
 	}
+	
+	def "Should return size of set"() {
+		
+		given: "a set of elements"
+		Set<String>	s = new HashSet<>(Arrays.asList("Hello", "world"))
+		
+		when: "size is called"
+		def actual = s.size()
+		
+		then: "the number of elements within the set should be returned"
+		actual == 2
+	}
 }

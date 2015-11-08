@@ -11,4 +11,6 @@ public interface Set<E> {
 	boolean contains(E value);
 	
 	boolean isEmpty();
+	
+	int size();
 }

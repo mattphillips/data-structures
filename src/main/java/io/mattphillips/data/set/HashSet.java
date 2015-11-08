@@ -44,4 +44,9 @@ public class HashSet<E> implements Set<E> {
 		return modified;
 	}
 
+	@Override
+	public int size() {
+		return map.size();
+	}
+
 }
