@@ -18,22 +18,18 @@ public class HashSet<E> implements Set<E> {
 		addAll(c);
 	}
 
-	@Override
 	public boolean add(final E element) {
 		return map.put(element, PRESENT) == null;
 	}
 
-	@Override
 	public boolean contains(final E value) {
 		return map.containsKey(value);
 	}
 
-	@Override
 	public boolean isEmpty() {
 		return map.isEmpty();
 	}
 
-	@Override
 	public boolean addAll(final Collection<? extends E> c) {
 		
 		boolean modified = false;
@@ -44,7 +40,6 @@ public class HashSet<E> implements Set<E> {
 		return modified;
 	}
 
-	@Override
 	public int size() {
 		return map.size();
 	}
