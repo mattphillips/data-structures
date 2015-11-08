@@ -4,6 +4,19 @@ import spock.lang.Specification
 
 class HashSetSpec extends Specification {
 	
+	def "Should be able to instaniate a new HashSet with an existing collection"() {
+		given: "a collection with some values"
+		
+		def list = Arrays.asList("Hello", "World")
+		
+		when: "a HashSet is created with the collection"
+		Set<String>	s = new HashSet<>(list);
+		
+		then: "the set should contain all unique values from the collection"
+		s.contains("Hello") == true
+		s.contains("World") == true
+	}
+	
 	def "Should add a unique string to the set"() {
 		
 		given: "a set of type string"

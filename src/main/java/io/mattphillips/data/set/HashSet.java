@@ -7,19 +7,24 @@ import java.util.Map;
 public class HashSet<E> implements Set<E> {
 	
 	private static final Object PRESENT = new Object();
-	private Map<E, Object> map;
+	private transient Map<E, Object> map;
 	
 	public HashSet() {
 		map = new HashMap<>();
 	}
+	
+	public HashSet(final Collection<? extends E> c) {
+		map = new HashMap<>(c.size());
+		addAll(c);
+	}
 
 	@Override
-	public boolean add(E element) {
+	public boolean add(final E element) {
 		return map.put(element, PRESENT) == null;
 	}
 
 	@Override
-	public boolean contains(E value) {
+	public boolean contains(final E value) {
 		return map.containsKey(value);
 	}
 
@@ -29,7 +34,7 @@ public class HashSet<E> implements Set<E> {
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends E> c) {
+	public boolean addAll(final Collection<? extends E> c) {
 		
 		boolean modified = false;
 		for (E element : c) {
