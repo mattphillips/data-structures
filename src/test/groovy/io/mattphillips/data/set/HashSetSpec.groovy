@@ -16,6 +16,19 @@ class HashSetSpec extends Specification {
 		actual == true
 	}
 	
+	def "Should not add a value to the set when the set already contains the value"() {
+		
+		given: "a set of type string"
+		Set<String>	s = new HashSet<>();
+		
+		when: "the same value is added twice"
+		s.add("Hello world!")
+		def actual = s.add("Hello world!")
+		
+		then: "false should be returned when attempting to add the same value for a second time"
+		actual == false
+	}
+	
 	def "Should return true when a set contains a given value"() {
 		
 		given: "a set of strings containing 'Hello world!'"
